@@ -1,28 +1,11 @@
 ﻿<ion-header>
   <ion-navbar>
-    <ion-title>
-      About
-    </ion-title>
+    <ion-title>About</ion-title>
   </ion-navbar>
 </ion-header>
-
 <ion-content padding>
-  <form #form="ngForm" (ngSubmit)="createItem(form)" novalidate>
-    <ion-item>
-      <ion-label>Todo</ion-label>
-      <ion-input type="text" required [(ngModel)]="todo.title" ngControl="title" name="title"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label>Description</ion-label>
-      <ion-textarea [(ngModel)]="todo.description" ngControl="description" name="description"></ion-textarea>
-    </ion-item>
-    <button ion-button type="submit" block>Add Todo</button>
-  </form>
-
-  <ion-list>
-    <li ion-item *ngFor="let todo of todos" (click)="todoSelected(todo)">
-      Title: {{ todo.title }} <br />
-      Description: {{ todo.description }}
-    </li>
-  </ion-list>
+  <h2>Welcome to Daily Task Manager!</h2>
+  <p>
+    Help Me
+  </p>
 </ion-content>

@@ -3,7 +3,7 @@ import { NavController, NavParams, LoadingController, AlertController } from 'io
 import { FormBuilder, Validators } from '@angular/forms';
 import { AuthData } from '../../providers/auth-data';
 import { EmailValidator } from '../../validators/email';
-import { HomePage } from '../home/home';
+import { TabsPage } from '../tabs/tabs';
 
 @Component({
   selector: 'page-signup',
@@ -36,7 +36,7 @@ export class SignupPage {
         } else {
             this.authData.signupUser(this.signupForm.value.email, this.signupForm.value.password)
                 .then(() => {
-                    this.navCtrl.setRoot(HomePage);
+                    this.navCtrl.setRoot(TabsPage);
                 }, (error) => {
                     this.loading.dismiss().then(() => {
                         var errorMessage: string = error.message;

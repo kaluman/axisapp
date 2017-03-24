@@ -1,6 +1,6 @@
 ﻿<ion-header>
 
-  <ion-navbar>
+  <ion-navbar hideBackButton="true">
     <ion-title>Login</ion-title>
   </ion-navbar>
 
@@ -12,7 +12,7 @@
 
     <ion-item>
       <ion-label stacked>Email</ion-label>
-      <ion-input #email formControlName="email" type="email" (change)="elementChanged(email)"
+      <ion-input formControlName="email" type="email"
                  placeholder="Your email address"
                  [class.invalid]="!loginForm.controls.email.valid &&
           loginForm.controls.email.dirty"></ion-input>
@@ -24,8 +24,7 @@
 
     <ion-item>
       <ion-label stacked>Password</ion-label>
-      <ion-input #password formControlName="password" type="password"
-                 (change)="elementChanged(password)"
+      <ion-input formControlName="password" type="password"
                  placeholder="Your password"
                  [class.invalid]="!loginForm.controls.password.valid &&
           loginForm.controls.password.dirty"></ion-input>
@@ -41,7 +40,7 @@
 
   </form>
 
-  <button ion-button block clear (click)="goToResetPassword()">
+  <button ion-button block clear>
     I forgot my password 🙁
   </button>
 

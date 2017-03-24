@@ -1,8 +1,8 @@
 ﻿import { Component } from '@angular/core';
-import { NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
+import { NavController, LoadingController, AlertController } from 'ionic-angular';
 import { FormBuilder, Validators } from '@angular/forms';
 import { AuthData } from '../../providers/auth-data';
-import { HomePage } from '../home/home';
+import { TabsPage } from '../tabs/tabs';
 import { SignupPage } from '../signup/signup';
 import { EmailValidator } from '../../validators/email';
 
@@ -15,7 +15,7 @@ export class LoginPage {
     loginForm: any;
     loading: any;
 
-    constructor(public navCtrl: NavController, public navParams: NavParams, public authData: AuthData, public formBuilder: FormBuilder, public alertCtrl: AlertController, public loadingCtrl: LoadingController) {
+    constructor(public navCtrl: NavController, public authData: AuthData, public formBuilder: FormBuilder, public alertCtrl: AlertController, public loadingCtrl: LoadingController) {
         this.loginForm = formBuilder.group({
             email: ['', Validators.compose([Validators.required, EmailValidator.isValid])],
             password: ['', Validators.compose([Validators.minLength(6), Validators.required])]
@@ -32,7 +32,7 @@ export class LoginPage {
         } else {
             this.authData.loginUser(this.loginForm.value.email, this.loginForm.value.password)
                 .then(authData => {
-                    this.navCtrl.setRoot(HomePage);
+                    this.navCtrl.setRoot(TabsPage);
                 }, error => {
                     this.loading.dismiss().then(() => {
                         let alert = this.alertCtrl.create({
@@ -58,5 +58,6 @@ export class LoginPage {
     createAccount() {
         this.navCtrl.push(SignupPage);
     }
+
 
 }

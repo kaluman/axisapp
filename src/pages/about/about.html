@@ -5,7 +5,30 @@
 </ion-header>
 <ion-content padding>
   <h2>Welcome to Daily Task Manager!</h2>
-  <p>
-    Help Me
-  </p>
+  <form [formGroup]="reportForm" (submit)="saveToFirebase()" novalidate>
+    <ion-item>
+      <ion-label stacked>Title</ion-label>
+      <ion-input formControlName="title" type="text"
+               placeholder="Title"
+               [class.invalid]="!reportForm.controls.title.valid &&
+          reportForm.controls.title.dirty"></ion-input>
+    </ion-item>
+    <ion-item class="error-message" *ngIf="!reportForm.controls.title.valid  && reportForm.controls.title.dirty">
+      <p>Please enter a valid title.</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-textarea formControlName="description"
+                 placeholder="Description of your message..."
+                 [class.invalid]="!reportForm.controls.description.valid &&
+          reportForm.controls.description.dirty"></ion-textarea>
+    </ion-item>
+    <ion-item class="error-message" *ngIf="!reportForm.controls.description.valid  && reportForm.controls.description.dirty">
+      <p>Please enter a valid message.</p>
+    </ion-item>
+
+    <button ion-button block type="submit">
+      Submit Timesheet
+    </button>
+  </form>
 </ion-content>

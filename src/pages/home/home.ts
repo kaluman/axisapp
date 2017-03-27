@@ -1,5 +1,6 @@
 ﻿import { Component } from '@angular/core';
-
+import { AngularFire, FirebaseListObservable } from 'angularfire2';
+import firebase from 'firebase';
 import { NavController } from 'ionic-angular';
 
 @Component({
@@ -7,20 +8,13 @@ import { NavController } from 'ionic-angular';
   templateUrl: 'home.html'
 })
 export class HomePage {
-    crew_name = 'Axis Construction';
-    number_of_employees: number;
-    operation: string;
-    job_completed: boolean;
-    number_of_crews: number;
-    location: any;
-    delay: any;
+    items: FirebaseListObservable<any[]>;
 
-  constructor(public navCtrl: NavController) {
+    constructor(public navCtrl: NavController, af: AngularFire) {
+        this.items = af.database.list('/reports');
+    }
 
-  }
-
-  itemClicked() {
-    alert('This is working the way it should be');
-  }
-
+    itemSelected() {
+        alert('hello');
+    }
 }

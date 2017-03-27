@@ -7,12 +7,13 @@ import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
 import { TabsPage } from '../pages/tabs/tabs';
+import { SplashScreen } from '@ionic-native/splash-screen'
 
 import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
+import { AuthData } from '../providers/auth-data';;
+import { Camera } from '@ionic-native/camera';
 
 // Importing Providers
-import { AuthData } from '../providers/auth-data';
 
 // Importing AF2 Module
 
@@ -30,7 +31,7 @@ const firebaseConfig = {
 const myFirebaseAuthConfig = {
     provider: AuthProviders.Password,
     method: AuthMethods.Password
-}
+};
 
 @NgModule({
   declarations: [
@@ -57,8 +58,9 @@ const myFirebaseAuthConfig = {
     TabsPage
   ],
   providers: [
-    StatusBar,
-    SplashScreen,
+      StatusBar,
+      SplashScreen,
+      Camera,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     AuthData
   ]

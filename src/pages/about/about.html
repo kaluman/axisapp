@@ -7,24 +7,84 @@
   <h2>Welcome to Daily Task Manager!</h2>
   <form [formGroup]="reportForm" (submit)="saveToFirebase()" novalidate>
     <ion-item>
-      <ion-label stacked>Title</ion-label>
-      <ion-input formControlName="title" type="text"
-               placeholder="Title"
-               [class.invalid]="!reportForm.controls.title.valid &&
-          reportForm.controls.title.dirty"></ion-input>
+      <ion-label stacked>Hoa</ion-label>
+      <ion-input formControlName="hoa" type="text"
+               placeholder="HOA"
+               [class.invalid]="!reportForm.controls.hoa.valid &&
+          reportForm.controls.hoa.dirty"></ion-input>
     </ion-item>
-    <ion-item class="error-message" *ngIf="!reportForm.controls.title.valid  && reportForm.controls.title.dirty">
-      <p>Please enter a valid title.</p>
+    <ion-item class="error-message" *ngIf="!reportForm.controls.hoa.valid  && reportForm.controls.hoa.dirty">
+      <p>Please enter a valid hoa.</p>
     </ion-item>
 
     <ion-item>
+      <ion-label stacked>Description of work done</ion-label>
       <ion-textarea formControlName="description"
-                 placeholder="Description of your message..."
                  [class.invalid]="!reportForm.controls.description.valid &&
           reportForm.controls.description.dirty"></ion-textarea>
     </ion-item>
     <ion-item class="error-message" *ngIf="!reportForm.controls.description.valid  && reportForm.controls.description.dirty">
       <p>Please enter a valid message.</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Operation/Activities</ion-label>
+      <ion-input formControlName="activities" type="text"
+                 placeholder="ei. Roof Repairs"
+                 [class.invalid]="!reportForm.controls.activities.valid &&
+          reportForm.controls.activities.dirty"></ion-input>
+    </ion-item>
+    <ion-item class="error-message" *ngIf="!reportForm.controls.activities.valid  && reportForm.controls.activities.dirty">
+      <p>Please enter a valid activity.</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Work Area/Location</ion-label>
+      <ion-input formControlName="location" type="text"
+                 placeholder="ei. Front of building"
+                 [class.invalid]="!reportForm.controls.location.valid &&
+          reportForm.controls.location.dirty"></ion-input>
+    </ion-item>
+    <ion-item class="error-message" *ngIf="!reportForm.controls.location.valid  && reportForm.controls.location.dirty">
+      <p>Please enter a valid location.</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Number of Crews</ion-label>
+      <ion-select formControlName="number_of_crews" [class.invalid]="!reportForm.controls.number_of_crews.valid && reportForm.controls.number_of_crews.dirty">
+        <ion-option value="1">1</ion-option>
+        <ion-option value="2">2</ion-option>
+        <ion-option value="3">3</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Number of Employees</ion-label>
+      <ion-select formControlName="number_of_employees" [class.invalid]="!reportForm.controls.number_of_employees.valid && reportForm.controls.number_of_employees.dirty">
+        <ion-option value="1">1</ion-option>
+        <ion-option value="2">2</ion-option>
+        <ion-option value="3">3</ion-option>
+        <ion-option value="4">4</ion-option>
+        <ion-option value="5">5</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Job Completed</ion-label>
+      <ion-select formControlName="job_completed" [class.invalid]="!reportForm.controls.job_completed.valid && reportForm.controls.job_completed.dirty">
+        <ion-option value="no">NO</ion-option>
+        <ion-option value="yes">YES</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <h3 text-center>Delay and Incidents</h3>
+
+    <ion-item>
+      <ion-label>Delay</ion-label>
+      <ion-select formControlName="delay" [class.invalid]="!reportForm.controls.delay.valid && reportForm.controls.delay.dirty">
+        <ion-option value="no">NO</ion-option>
+        <ion-option value="yes">YES</ion-option>
+      </ion-select>
     </ion-item>
 
     <button ion-button block type="submit">

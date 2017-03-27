@@ -6,7 +6,9 @@
 
 <ion-content padding>
   <h2>Welcome to Daily Task Manager!</h2>
-  <p>
-    <button ion-button color="secondary" outline (click)="itemClicked()">Create a Log</button>
-  </p>
+  <ion-list>
+    <button ion-item *ngFor="let item of items | async" (click)="itemSelected(item)">
+      Description: {{ item.description }}
+    </button>
+  </ion-list>
 </ion-content>

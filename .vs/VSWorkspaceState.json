@@ -1,8 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\src"
+    "\\src",
+    "\\src\\app",
+    "\\src\\pages",
+    "\\src\\pages\\signup"
   ],
-  "SelectedNode": "\\src\\pages",
+  "SelectedNode": "\\src\\pages\\signup\\signup.ts",
   "PreviewInSolutionExplorer": false
 }
